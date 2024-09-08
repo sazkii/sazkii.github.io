@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Lombok | sazkii</title><meta name="author" content="sazkii"><meta name="copyright" content="sazkii"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="lombok https:&#x2F;&#x2F;www.cnblogs.com&#x2F;forestwolf&#x2F;p&#x2F;17732667.html   https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_58719994&#x2F;article&#x2F;details&#x2F;128128389  在java 开发中，常常需要编写大量的getter、setter方法、equals和hashCode方法、构造函数等重复且繁琐的代码。 为了减少 Java 代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lombok">
+<meta property="og:url" content="http://example.com/2024/06/27/lombok/index.html">
+<meta property="og:site_name" content="sazkii">
+<meta property="og:description" content="lombok https:&#x2F;&#x2F;www.cnblogs.com&#x2F;forestwolf&#x2F;p&#x2F;17732667.html   https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_58719994&#x2F;article&#x2F;details&#x2F;128128389  在java 开发中，常常需要编写大量的getter、setter方法、equals和hashCode方法、构造函数等重复且繁琐的代码。 为了减少 Java 代">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/74520977?s%E2%80%A600&u=060925dc0ee8e853e7c8dee426bd0ca3e9850dc2&v=4">
+<meta property="article:published_time" content="2024-06-27T10:10:11.000Z">
+<meta property="article:modified_time" content="2024-09-08T15:33:51.354Z">
+<meta property="article:author" content="sazkii">
+<meta property="article:tag" content="Spring Boot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/74520977?s%E2%80%A600&u=060925dc0ee8e853e7c8dee426bd0ca3e9850dc2&v=4"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/27/lombok/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Lombok',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-08 23:33:51'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/74520977?s…00&amp;u=060925dc0ee8e853e7c8dee426bd0ca3e9850dc2&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="sazkii"><span class="site-name">sazkii</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Lombok</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-27T10:10:11.000Z" title="发表于 2024-06-27 18:10:11">2024-06-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-08T15:33:51.354Z" title="更新于 2024-09-08 23:33:51">2024-09-08</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="lombok"><a href="#lombok" class="headerlink" title="lombok"></a>lombok</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/forestwolf/p/17732667.html">https://www.cnblogs.com/forestwolf/p/17732667.html</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58719994/article/details/128128389">https://blog.csdn.net/m0_58719994/article/details/128128389</a></p>
+</blockquote>
+<p>在java 开发中，常常需要编写大量的getter、setter方法、equals和hashCode方法、构造函数等重复且繁琐的代码。</p>
+<p>为了减少 Java 代码中的冗余和样板代码，提高代码的可读性和开发效率，就有了Lombok的出现。</p>
+<p>Lombok是一个 Java 库，它通过使用注解来简化 Java 代码的编写。它提供了一系列的注解，用于自动生成常见的代码，如getter和setter方法、构造函数、equals和hashCode方法等，以减少开发者的重复劳动。</p>
+<p>使用Lombok，开发者只需在 Java 类上添加相应的注解，而不需要手动编写相应的代码。在编译过程中，Lombok会根据这些注解自动生成对应的代码，减少代码中的冗余和样板代码以及简化代码的编写过程。</p>
+<p>使用Lombok可以提高代码的可读性、简洁性和可维护性，让开发者能够更专注于业务逻辑的实现。</p>
+<h2 id="lombok注解"><a href="#lombok注解" class="headerlink" title="lombok注解"></a>lombok注解</h2><ul>
+<li>@Getter、@Setter</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给类下的所有属性添加Setter/Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="comment">//给id属性添加Setter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> Integer id;</span><br><span class="line">  <span class="comment">//给username的setter方法设置私有权限</span></span><br><span class="line">  <span class="meta">@Setter(AccessLevel.PRIVATE)</span></span><br><span class="line">  <span class="keyword">private</span> String username;</span><br><span class="line">  <span class="comment">//取消password的Getter方法</span></span><br><span class="line">  <span class="meta">@Getter(AccessLevel.NONE)</span></span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">address</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ol>
+<li>static修饰的变量不生成getter和setter方法</li>
+<li>final修饰的变量只生成getter方法</li>
+</ol>
+<ul>
+<li>@ToString</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Getter</span><br><span class="line">@Setter</span><br><span class="line">// 给User2设置一个toString的方法，不显示password的值</span><br><span class="line">@ToString(exclude = &#123;&quot;password&quot;&#125;) </span><br><span class="line">public class User2 &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@EquelsAndHashCode比较两个对象是否相等</li>
+</ul>
+<p>在Java中，调用equals()可以判断两个对象是否相等。如果类不重写 该方法，则判断两个引用是否指向同一个对象。</p>
+<p>如何重写equals()：</p>
+<p>1、判断两个引用是否指向同一对象</p>
+<p>2、判断引用是否为Null</p>
+<p>3、判断两个对象的实际类型是否相等，此时需要调用canEqual()</p>
+<p>4、判断两个对象的属性是否相等<br>而在Set中判断对象是否重复，在调用equals()之前，需要先调用 hashCode()计算hash值。所以判断对象相等需要重写equals()、 canEqual()、hashCode()三个方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode(of = &#123;&quot;username&quot;&#125;)</span></span><br><span class="line"><span class="comment">//exclude： 比较时排除一些属性，of： 比较时只使用一些属性</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User3</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NonNull表示属性或方法参数不能为Null</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//放在方法前或者属性上方</span><br><span class="line">@Setter</span><br><span class="line">@Getter</span><br><span class="line">public class User4 &#123;</span><br><span class="line">    // 调用构造方法或setter给id赋值时，值不能为null</span><br><span class="line">    @NonNull</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line">    // 调用sleep方法时，time参数不能为null</span><br><span class="line">    public void sleep(@NonNull Integer time)</span><br><span class="line">   &#123;</span><br><span class="line">        System.out.println(&quot;睡觉&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 测试</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class UserTest &#123;</span><br><span class="line">    @Test</span><br><span class="line">    public void testUser() &#123;</span><br><span class="line">        User4 user = new User4();</span><br><span class="line">        user.setId(null);</span><br><span class="line">        user.sleep(null);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NoArgsConstructor</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//生成无参构造方法</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>RequiredArgsConstructor</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//生成包含final和@NonNull修饰的属性的构造方法</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>AllArgsConstructor</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//生成全参的构造方法</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Data</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//相当于同时添加@Setter、@Getter、@ToString、@EqualsAndHashCode、@RequiredArgsConstructor五个注解</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Builder</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//提供链式风格创建对象</span><br><span class="line">// 同时提供@Setter、@Getter、@ToString、</span><br><span class="line">@EqualsAndHashCode、@RequiredArgsConstructor</span><br><span class="line">@Data</span><br><span class="line">// 提供链式风格创建对象</span><br><span class="line">@Builder</span><br><span class="line">public class User6 &#123;</span><br><span class="line">    @NonNull</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line">&#125;</span><br><span class="line">// 测试</span><br><span class="line">@Test</span><br><span class="line">public void testUser() &#123;</span><br><span class="line">    User6 user6 = User6.builder()</span><br><span class="line">       .id(1)</span><br><span class="line">       .username(&quot;itbaizhan&quot;)</span><br><span class="line">       .password(&quot;itbaizhan&quot;)</span><br><span class="line">       .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@Builder 注解是 Lombok 提供的一种注解，用于简化构建对象的过程。通过在类上添加 </p>
+<p>@Builder 注解，可以自动生成一个建造者模式相关的代码，使得对象的构建更加简洁和易读</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例如</span><br><span class="line">@Builder</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    private String address;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person person = Person.builder()</span><br><span class="line">                      .name(&quot;张三&quot;)</span><br><span class="line">                      .age(25)</span><br><span class="line">                      .address(&quot;北京&quot;)</span><br><span class="line">                      .build();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Log</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在类中生成日志对象，在方法中可以直接使用</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">生成log对象，用于记录日志，可以通过topic属性来设置getLogger(String name)方法的参数 例如 <span class="doctag">@Log</span>4j(topic = “com.xxx.entity.User”)，默认是类的全限定名，即 类名.class，log支持以下几种：</span></span><br><span class="line"><span class="comment"><span class="doctag">@Log</span> java.util.logging.Logger</span></span><br><span class="line"><span class="comment"><span class="doctag">@Log</span>4j org.apache.log4j.Logger</span></span><br><span class="line"><span class="comment"><span class="doctag">@Log</span>4j2 org.apache.logging.log4j.Logger</span></span><br><span class="line"><span class="comment"><span class="doctag">@Slf</span>4j org.slf4j.Logger</span></span><br><span class="line"><span class="comment"><span class="doctag">@XSlf</span>4j org.slf4j.ext.XLogger</span></span><br><span class="line"><span class="comment"><span class="doctag">@CommonsLog</span> org.apache.commons.logging.Log</span></span><br><span class="line"><span class="comment"><span class="doctag">@JBossLog</span> org.jboss.logging.Logger</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Log4j2</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User7</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sleep</span><span class="params">()</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;调用睡觉方法&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;睡觉&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics2.baidu.com/feed/5366d0160924ab18ef97d5add23f99cb79890bf6.jpeg@f_auto?token=1f9b2ee1213b8abfb99a885446a1216c" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics7.baidu.com/feed/37d12f2eb9389b5034ec70f660f09adbe6116e4b.jpeg@f_auto?token=7fd9b3921ad5dc7d7bc50a23fad7cb8d" alt="img"></p>
+<ul>
+<li>Cleanup</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//主要用来修饰 IO 流相关类, 会在 finally 代码块中对该资源进行 close();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SneakyThrows</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对方法中的异常进行捕捉并抛出</span></span><br><span class="line"><span class="comment">//放在类的前面</span></span><br><span class="line"><span class="meta">@SneakyThrows</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="meta">@Cleanup</span> <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Synchronized</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//给方法加上同步锁</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics4.baidu.com/feed/0eb30f2442a7d933133c78114b8eae1572f0010c.jpeg@f_auto?token=0371b9b4feb62cd3feba433632a275df" alt="img"></p>
+<ul>
+<li>Getter(lazy &#x3D; true)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标注字段为懒加载字段，懒加载字段在创建对象时不会进行初始化，而是在第一次访问的时候才会初始化，后面再次访问也不会重复初始化</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics4.baidu.com/feed/d788d43f8794a4c24530e483ea3164d3ac6e3956.jpeg@f_auto?token=b2db4d9c4d7c8c662545f51bd77e0842" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics4.baidu.com/feed/0823dd54564e9258d61884897b47ae5ecdbf4ef0.jpeg@f_auto?token=587397983ea73ded2df0097e04e7a528" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics7.baidu.com/feed/11385343fbf2b211965d4b0b2f451a3e0dd78e54.jpeg@f_auto?token=ab2e106855d46319bb62daa7e98b1534" alt="img"></p>
+<ul>
+<li>Wither</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给final字段赋值的一种方法</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics0.baidu.com/feed/b999a9014c086e0619f1bd67e7cd04f20bd1cb89.jpeg@f_auto?token=c3a49ba1719cf67a82349b4cad969d3d" alt="img"></p>
+<ul>
+<li>Delegate</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为List类型的字段生成一大堆常用的方法，其实这些方法都是List中的方法</span><br><span class="line"></span><br><span class="line">注意：一个类中只能使用一个@Delegate注解，因为使用多个会生成多个size()方法，从而会编译报错。</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pics1.baidu.com/feed/c2fdfc039245d6881f191a6c43070218d31b242f.jpeg@f_auto?token=57c884687756351f591b8bde75252bf4" alt="img"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">sazkii</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/27/lombok/">http://example.com/2024/06/27/lombok/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">sazkii</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring-Boot/">Spring Boot</a></div><div class="post_share"><div class="social-share" data-image="https://avatars.githubusercontent.com/u/74520977?s…00&amp;u=060925dc0ee8e853e7c8dee426bd0ca3e9850dc2&amp;v=4" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/27/springboot/" title="Spring Boot"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Spring Boot</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/27/restful/" title="restful"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">restful</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/06/27/springboot/" title="Spring Boot"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">Spring Boot</div></div></a></div><div><a href="/2024/06/27/restful/" title="restful"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">restful</div></div></a></div><div><a href="/2024/06/27/sql/" title="SQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">SQL</div></div></a></div><div><a href="/2024/06/27/mybatis-plus/" title="mybatis&#x2F;mybatis-plus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">mybatis&#x2F;mybatis-plus</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/74520977?s…00&amp;u=060925dc0ee8e853e7c8dee426bd0ca3e9850dc2&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">sazkii</div><div class="author-info__description">Hexo+github</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sazkii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/sazkii" target="_blank" title=""><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">无限进步</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lombok"><span class="toc-number">1.</span> <span class="toc-text">lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">lombok注解</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/linux/" title="linux">linux</a><time datetime="2024-09-08T13:09:31.000Z" title="发表于 2024-09-08 21:09:31">2024-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/27/springboot/" title="Spring Boot">Spring Boot</a><time datetime="2024-06-27T10:10:11.000Z" title="发表于 2024-06-27 18:10:11">2024-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/27/lombok/" title="Lombok">Lombok</a><time datetime="2024-06-27T10:10:11.000Z" title="发表于 2024-06-27 18:10:11">2024-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/27/restful/" title="restful">restful</a><time datetime="2024-06-27T10:10:11.000Z" title="发表于 2024-06-27 18:10:11">2024-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/27/sql/" title="SQL">SQL</a><time datetime="2024-06-27T10:10:11.000Z" title="发表于 2024-06-27 18:10:11">2024-06-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By sazkii</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div></div></body></html>
